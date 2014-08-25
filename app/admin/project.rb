@@ -1,4 +1,5 @@
 ActiveAdmin.register Project do
+  permit_params :name, :description, :verified, :status, :begins_at, :ends_at, :price
 
 
   # See permitted parameters documentation:
