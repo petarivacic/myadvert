@@ -1,44 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Project -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Project %></h1>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @project.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @project.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:verified) %></dt>
+      <dd><pre class="prettyprint"><%= @project.verified %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:status) %></dt>
+      <dd><pre class="prettyprint"><%= @project.status %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:begins_at) %></dt>
+      <dd><pre class="prettyprint"><%= @project.begins_at %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:ends_at) %></dt>
+      <dd><pre class="prettyprint"><%= @project.ends_at %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:price) %></dt>
+      <dd><pre class="prettyprint"><%= @project.price %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              projects_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_project_path(@project), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              project_path(@project),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Verified:</strong>
-  <%= @project.verified %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @project.status %>
-</p>
-
-<p>
-  <strong>Begins at:</strong>
-  <%= @project.begins_at %>
-</p>
-
-<p>
-  <strong>Ends at:</strong>
-  <%= @project.ends_at %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @project.price %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @project.user %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
